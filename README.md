@@ -4,15 +4,16 @@ Syntax highlighting and auto-indentation for `TODO` files in Vim.
 
 ## File Format
 
-Tasks have a numeric index when active and `[-]` when done, followed by a
-title. Indented lines below a task are its content.
+Tasks have a numeric index when active, `[*]` when planned, and `[-]` when
+done, followed by a title. Indented lines below a task are its content.
+Content lines can use `*` or `-` as list markers.
 
 ```
 [1] Buy groceries
-    Milk
-    Eggs
+    * Milk
+    * Eggs
 
-[2] Write report
+[*] Write report
     First draft by Friday
 
 [-] Fix the leaky faucet
@@ -21,17 +22,24 @@ title. Indented lines below a task are its content.
 
 ## Highlighting
 
-Active tasks display the index (`[1]`) in `Identifier` color and the title in
-`Statement` color. Content lines under active tasks use `Normal` color.
+Active tasks display the index and title (`[1] title`) in `Identifier` color.
+Content lines under active tasks use `Normal` color.
+
+Planned tasks (`[*]`) display the marker and title in blue.
+Content lines under planned tasks use `Normal` color.
 
 Completed tasks (`[-]`) are entirely greyed out using `Comment` color -- marker,
 title, and content.
 
+List markers (`*` and `-`) at the beginning of content lines are displayed in
+green across all task types.
+
 ## Indentation
 
 The plugin automatically indents content lines under task titles. After typing
-a task title (`[1] ...` or `[-] ...`) and pressing Enter, the cursor is
-indented by 4 spaces. The indent is maintained for subsequent content lines.
+a task title (`[1] ...`, `[*] ...`, or `[-] ...`) and pressing Enter, the
+cursor is indented by 4 spaces. The indent is maintained for subsequent content
+lines.
 
 Two or more consecutive blank lines reset the indent to column 0, so you can
 start a new task at the top level.
@@ -83,14 +91,18 @@ This is a syntax-only plugin -- no commands or key mappings. Filetype is `todo`.
 
 Highlight groups:
 
-| Group | Pattern | Links to |
+| Group | Pattern | Color |
 |---|---|---|
 | `todoIndex` | `[N]` | `Identifier` |
-| `todoTitle` | title after `[N]` | `Statement` |
+| `todoTitle` | title after `[N]` | `Identifier` |
 | `todoContent` | indented lines under active tasks | `Normal` |
+| `todoPlannedMarker` | `[*]` | Blue |
+| `todoPlannedTitle` | title after `[*]` | Blue |
+| `todoPlannedContent` | indented lines under planned tasks | `Normal` |
 | `todoDoneMarker` | `[-]` | `Comment` |
 | `todoDoneTitle` | title after `[-]` | `Comment` |
 | `todoDoneContent` | indented lines under done tasks | `Comment` |
+| `todoListMarker` | `*` or `-` in content lines | Green |
 
 Indent logic (`indent/todo.vim`):
 
