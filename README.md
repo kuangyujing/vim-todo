@@ -9,15 +9,16 @@ done, followed by a title. Indented lines below a task are its content.
 Content lines can use `*` or `-` as list markers.
 
 ```
-[1] Buy groceries
-    * Milk
-    * Eggs
+[1] Set up CI pipeline
+    * GitHub Actions workflow for lint and test
+    * Add deploy step for staging
 
-[*] Write report
-    First draft by Friday
+[*] Migrate database to PostgreSQL
+    - Export current schema
+    - Write migration scripts
 
-[-] Fix the leaky faucet
-    Called the plumber
+[-] Fix login redirect bug
+    Token refresh logic was skipping the callback URL
 ```
 
 ## Highlighting
