@@ -30,9 +30,9 @@ hi def link todoContent Normal
 hi def link todoPlannedMarker Normal
 hi def link todoPlannedTitle Normal
 hi def link todoPlannedContent Normal
-hi def link todoDoneMarker Comment
-hi def link todoDoneTitle Comment
-hi def link todoDoneContent Comment
-hi def todoListMarker ctermfg=Green guifg=Green
+hi def todoDoneMarker ctermfg=Gray guifg=Gray
+hi def todoDoneTitle ctermfg=Gray guifg=Gray
+hi def todoDoneContent ctermfg=Gray guifg=Gray
+hi def link todoListMarker Normal
 
 let b:current_syntax = "todo"
