@@ -15,7 +15,7 @@ syn match todoTitle /^\[\d\+\]\s\+.\+/ contained contains=todoIndex
 syn match todoContent /^    .\+/ contained
 
 hi def link todoIndex Identifier
-hi def link todoTitle Statement
+hi def link todoTitle Identifier
 hi def link todoContent Normal
 hi def link todoDoneMarker Comment
 hi def link todoDoneTitle Comment
