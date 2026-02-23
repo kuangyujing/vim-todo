@@ -31,7 +31,7 @@ function! GetTodoIndent(lnum) abort
         return 0
     endif
     let prev_line = getline(prev_nonblank)
-    if prev_line =~ '^\[\d\+\]\|^\[-\]\|^\[\*\]'
+    if prev_line =~ '^\[[^\]]\+\]'
         return &shiftwidth
     endif
 
