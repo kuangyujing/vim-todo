@@ -8,6 +8,12 @@ syn match todoDoneMarker /^\[-\]/ contained
 syn match todoDoneTitle /^\[-\]\s\+.\+/ contained contains=todoDoneMarker
 syn match todoDoneContent /^    .\+/ contained
 
+" Planned task block: [*] marker, title, and indented content lines
+syn region todoPlannedBlock start=/^\[\*\]/ end=/\n\ze\(\[.\]\|\S\|\s*$\)/me=s-1 contains=todoPlannedMarker,todoPlannedTitle,todoPlannedContent
+syn match todoPlannedMarker /^\[\*\]/ contained
+syn match todoPlannedTitle /^\[\*\]\s\+.\+/ contained contains=todoPlannedMarker
+syn match todoPlannedContent /^    .\+/ contained
+
 " Active task block: [N] marker, title, and indented content lines
 syn region todoActiveBlock start=/^\[\d\+\]/ end=/\n\ze\(\[.\]\|\S\|\s*$\)/me=s-1 contains=todoIndex,todoTitle,todoContent
 syn match todoIndex /^\[\d\+\]/ contained
@@ -17,6 +23,9 @@ syn match todoContent /^    .\+/ contained
 hi def link todoIndex Identifier
 hi def link todoTitle Identifier
 hi def link todoContent Normal
+hi def todoPlannedMarker ctermfg=Blue guifg=Blue
+hi def todoPlannedTitle ctermfg=Blue guifg=Blue
+hi def link todoPlannedContent Normal
 hi def link todoDoneMarker Comment
 hi def link todoDoneTitle Comment
 hi def link todoDoneContent Comment
