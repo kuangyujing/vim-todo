@@ -21,6 +21,8 @@ Content lines can use `*` or `-` as list markers.
     Token refresh logic was skipping the callback URL
 ```
 
+![image](assets/image.png)
+
 ## Highlighting
 
 Active tasks display the index and title (`[1] title`) in `Identifier` color.
